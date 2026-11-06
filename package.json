@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "^1.4.4"
+    "@types/bun": "^1.4.4",
+    "electron": "^45.2.3"
   },
   "peerDependencies": {
     "typescript": "^5"
