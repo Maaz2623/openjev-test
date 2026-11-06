@@ -1,5 +1,4 @@
 import "dotenv/config";
-import OpenAI from "openai";
 import sharp from "sharp";
 import robot from "robotjs";
 
@@ -14,7 +13,7 @@ import {
 import { mkdir, writeFile } from "node:fs/promises";
 
 // ============================================================
-// VANGREX - DUAL IMAGE VISUAL PERCEPTION
+// VANGREX - OPENJEV SYSTEM ONE HOVER DETECTOR
 // ============================================================
 
 const API_KEY = process.env.TYPESAFE_API_KEY;
@@ -23,19 +22,16 @@ if (!API_KEY) {
   throw new Error("TYPESAFE_API_KEY is missing from .env");
 }
 
-const client = new OpenAI({
-  baseURL: "https://api.codiv.ai/v1",
-  apiKey: API_KEY,
-});
-
-const MODEL = "diffusiongemma-26b";
-const MAX_TOKENS = 2048;
+const API_URL = "https://api.codiv.ai/v1/systemone";
+const MODEL = "openjev-latest";
 
 const SCREENSHOT_DIR = "./screenshots";
 
-// Cursor-centered crop dimensions
 const CROP_WIDTH = 480;
 const CROP_HEIGHT = 360;
+
+// OpenJev noul probability threshold
+const YES_THRESHOLD = 0.5;
 
 // ============================================================
 // ARGUMENTS
@@ -59,9 +55,9 @@ if (!userPrompt) {
   console.log(`
 Usage:
 
-bun run temp.ts "Find the Extensions icon"
-bun run temp.ts "Find the cursor" enhanced
-bun run temp.ts "Identify the hovered element" high
+bun run temp.ts "Settings button"
+bun run temp.ts "VS Code Extensions icon" enhanced
+bun run temp.ts "Start menu Settings button" high
 
 Modes:
 original  - No enhancement
@@ -119,7 +115,7 @@ async function enhanceImage(input: Buffer, mode: string): Promise<Buffer> {
       });
   }
 
-  return pipeline.png({ compressionLevel: 6 }).toBuffer();
+  return pipeline.png({ compressionLevel: 9 }).toBuffer();
 }
 
 // ============================================================
@@ -131,7 +127,7 @@ async function captureDesktop(): Promise<{
   width: number;
   height: number;
 }> {
-  console.log("\n[1] Initializing screen capture...");
+  console.log("\n[1] Initializing native screen capture...");
 
   if (!isSupported()) {
     throw new Error("Native screen capture is not supported.");
@@ -182,7 +178,6 @@ function getCursorPosition(screenshotWidth: number, screenshotHeight: number) {
   const mouse = robot.getMousePos();
   const screen = robot.getScreenSize();
 
-  // Convert RobotJS coordinates into screenshot coordinates.
   const scaleX = screenshotWidth / screen.width;
   const scaleY = screenshotHeight / screen.height;
 
@@ -211,35 +206,21 @@ async function createCursorCrop(
   screenshotHeight: number,
   cursorX: number,
   cursorY: number,
-): Promise<{
-  image: Buffer;
-  left: number;
-  top: number;
-  width: number;
-  height: number;
-}> {
-  // Keep crop dimensions within screenshot dimensions.
+) {
   const width = Math.min(CROP_WIDTH, screenshotWidth);
   const height = Math.min(CROP_HEIGHT, screenshotHeight);
 
-  // Center crop around cursor.
   let left = Math.round(cursorX - width / 2);
   let top = Math.round(cursorY - height / 2);
 
-  // Prevent crop from going outside screen boundaries.
   left = Math.max(0, Math.min(left, screenshotWidth - width));
   top = Math.max(0, Math.min(top, screenshotHeight - height));
 
-  console.log("\n[CROP] Creating cursor-centered crop...");
-
-  console.log({
-    cursor: { x: cursorX, y: cursorY },
-    crop: {
-      left,
-      top,
-      width,
-      height,
-    },
+  console.log("\n[CROP] Cursor-centered region:", {
+    left,
+    top,
+    width,
+    height,
   });
 
   const image = await sharp(screenshot)
@@ -249,7 +230,7 @@ async function createCursorCrop(
       width,
       height,
     })
-    .png()
+    .png({ compressionLevel: 9 })
     .toBuffer();
 
   return {
@@ -262,23 +243,229 @@ async function createCursorCrop(
 }
 
 // ============================================================
+// OPENJEV SYSTEM ONE API
+// ============================================================
+
+async function checkHoverWithOpenJev(
+  fullImage: Buffer,
+  cropImage: Buffer,
+  metadata: {
+    target: string;
+    cursorX: number;
+    cursorY: number;
+    screenWidth: number;
+    screenHeight: number;
+    cropLeft: number;
+    cropTop: number;
+    cropWidth: number;
+    cropHeight: number;
+  },
+) {
+  console.log("\n[5] Sending dual images to OpenJev System One...");
+
+  // Both images remain PNG and are not resized.
+  const fullBase64 = fullImage.toString("base64");
+  const cropBase64 = cropImage.toString("base64");
+
+  const fullSize = fullImage.length;
+  const cropSize = cropImage.length;
+
+  console.log("[IMAGES]", {
+    fullImageMB: (fullSize / 1024 / 1024).toFixed(3),
+    cropImageMB: (cropSize / 1024 / 1024).toFixed(3),
+    totalMB: ((fullSize + cropSize) / 1024 / 1024).toFixed(3),
+    resizing: false,
+    format: "PNG",
+  });
+
+  // Codiv limits:
+  // 5 MB per decoded image.
+  // 8 MB total request body.
+  if (fullSize > 5 * 1024 * 1024) {
+    throw new Error("Full screenshot exceeds the 5 MB image limit.");
+  }
+
+  if (cropSize > 5 * 1024 * 1024) {
+    throw new Error("Cursor crop exceeds the 5 MB image limit.");
+  }
+
+  if (fullSize + cropSize > 7 * 1024 * 1024) {
+    throw new Error(
+      "Combined images are too large. Reduce PNG file sizes without resizing.",
+    );
+  }
+
+  const state = `
+You are analyzing a live desktop screenshot to determine whether
+the mouse cursor is hovering over a specific target UI element.
+
+TARGET ELEMENT:
+${metadata.target}
+
+TWO IMAGES ARE PROVIDED:
+
+IMAGE 1:
+The complete desktop screenshot.
+
+IMAGE 2:
+A cursor-centered crop extracted from IMAGE 1.
+It provides additional detail around the mouse pointer.
+
+SCREEN INFORMATION:
+Resolution: ${metadata.screenWidth} x ${metadata.screenHeight}
+
+MOUSE CURSOR POSITION IN IMAGE 1:
+X: ${metadata.cursorX}
+Y: ${metadata.cursorY}
+
+IMAGE 2 CROP ORIGIN IN IMAGE 1:
+Left: ${metadata.cropLeft}
+Top: ${metadata.cropTop}
+
+IMAGE 2 DIMENSIONS:
+${metadata.cropWidth} x ${metadata.cropHeight}
+
+HOVER DETECTION RULES:
+
+1. Determine whether the mouse cursor is physically positioned
+   over the TARGET ELEMENT.
+
+2. Use IMAGE 1 to understand the desktop and identify the target.
+
+3. Use IMAGE 2 to inspect the exact region around the cursor.
+
+4. The cursor coordinates represent the mouse pointer hotspot.
+
+5. YES means the pointer hotspot overlaps the visible target
+   element's actual clickable or interactive area.
+
+6. NO means the pointer is outside the target element.
+
+7. Being near the target is NOT hovering.
+
+8. Do not confuse a neighboring element with the target.
+
+9. Do not assume hover merely because the target is visible.
+
+10. If the cursor is between elements, answer NO.
+
+11. If the target cannot be identified confidently, answer NO.
+
+12. Do not infer hover from a highlighted appearance alone.
+    Use the cursor position and visual overlap.
+
+The decision must be based on both images together.
+`;
+
+  const requestBody = {
+    model: MODEL,
+
+    state,
+
+    images: [
+      {
+        content_type: "image/png",
+        base64: fullBase64,
+      },
+      {
+        content_type: "image/png",
+        base64: cropBase64,
+      },
+    ],
+
+    questions: {
+      isHovered: {
+        type: "noul",
+
+        instructions: `
+Is the mouse cursor hotspot physically inside the actual
+interactive area of the specified target element?
+
+Answer TRUE only when there is clear visual evidence
+that the cursor overlaps the target element.
+
+Answer FALSE when the cursor is outside, merely nearby,
+over another element, or when identification is uncertain.
+`,
+
+        criteria: {
+          true: "The cursor hotspot is inside the target element's interactive area.",
+          false:
+            "The cursor hotspot is not inside the target element's interactive area.",
+        },
+      },
+    },
+
+    // One read for fastest response.
+    samples: 1,
+  };
+
+  const requestStart = Date.now();
+
+  const response = await fetch(API_URL, {
+    method: "POST",
+
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+      "Content-Type": "application/json",
+    },
+
+    body: JSON.stringify(requestBody),
+  });
+
+  const responseTime = Date.now() - requestStart;
+
+  const responseText = await response.text();
+
+  if (!response.ok) {
+    throw new Error(
+      `System One API error (${response.status}): ${responseText}`,
+    );
+  }
+
+  let data: any;
+
+  try {
+    data = JSON.parse(responseText);
+  } catch {
+    throw new Error(`Invalid JSON response: ${responseText}`);
+  }
+
+  const answer = data.answers?.isHovered;
+
+  if (answer?.type !== "noul" || typeof answer.noul !== "number") {
+    throw new Error(`Unexpected System One response: ${responseText}`);
+  }
+
+  const probability = answer.noul;
+
+  const isHovered = probability >= YES_THRESHOLD;
+
+  return {
+    isHovered,
+    probability,
+    responseTime,
+    model: data.model,
+    usage: data.usage,
+  };
+}
+
+// ============================================================
 // MAIN
 // ============================================================
 
 async function main() {
   console.log("==========================================");
-  console.log(" VANGREX - DUAL IMAGE PERCEPTION");
+  console.log(" VANGREX - OPENJEV HOVER DETECTOR");
   console.log("==========================================");
 
-  console.log("[PROMPT]", userPrompt);
+  console.log("[TARGET]", userPrompt);
   console.log("[MODEL]", MODEL);
   console.log("[MODE]", enhancementMode);
 
   await mkdir(SCREENSHOT_DIR, { recursive: true });
 
-  // ----------------------------------------------------------
-  // 1. CAPTURE FULL SCREENSHOT
-  // ----------------------------------------------------------
+  // 1. Capture desktop
 
   const captureStart = Date.now();
 
@@ -286,7 +473,7 @@ async function main() {
 
   const captureTime = Date.now() - captureStart;
 
-  console.log("\n[CAPTURE] Full screenshot:", {
+  console.log("[CAPTURE]", {
     resolution: `${width}x${height}`,
     sizeMB: (originalImage.length / 1024 / 1024).toFixed(3),
     captureTimeMs: captureTime,
@@ -294,19 +481,15 @@ async function main() {
 
   await writeFile(`${SCREENSHOT_DIR}/original.png`, originalImage);
 
-  // ----------------------------------------------------------
-  // 2. GET CURRENT CURSOR POSITION
-  // ----------------------------------------------------------
+  // 2. Read cursor position
 
-  console.log("\n[2] Reading mouse coordinates...");
+  console.log("\n[2] Reading cursor position...");
 
   const cursor = getCursorPosition(width, height);
 
   console.log("[CURSOR]", cursor);
 
-  // ----------------------------------------------------------
-  // 3. CREATE SECOND IMAGE AROUND CURSOR
-  // ----------------------------------------------------------
+  // 3. Create cursor crop
 
   const cropStart = Date.now();
 
@@ -322,19 +505,14 @@ async function main() {
 
   await writeFile(`${SCREENSHOT_DIR}/cursor-crop-original.png`, crop.image);
 
-  // ----------------------------------------------------------
-  // 4. ENHANCE BOTH IMAGES INDEPENDENTLY
-  // ----------------------------------------------------------
+  // 4. Enhance images independently
 
-  console.log("\n[3] Enhancing both images...");
+  console.log("\n[3] Enhancing images...");
 
   const enhancementStart = Date.now();
 
-  // Image 1: Entire desktop
   const enhancedFullImage = await enhanceImage(originalImage, enhancementMode);
 
-  // Image 2: Local cursor region
-  // Enhanced independently, without resizing.
   const enhancedCrop = await enhanceImage(crop.image, enhancementMode);
 
   const enhancementTime = Date.now() - enhancementStart;
@@ -347,304 +525,57 @@ async function main() {
     mode: enhancementMode,
     fullResolution: `${width}x${height}`,
     cropResolution: `${crop.width}x${crop.height}`,
-    enhancementTimeMs: enhancementTime,
     resizing: false,
+    enhancementTimeMs: enhancementTime,
   });
 
-  // ----------------------------------------------------------
-  // 5. ENCODE BOTH IMAGES
-  // ----------------------------------------------------------
+  // 5. Send images to OpenJev
 
-  console.log("\n[4] Encoding dual images...");
+  const result = await checkHoverWithOpenJev(enhancedFullImage, enhancedCrop, {
+    target: userPrompt,
 
-  const fullBase64 = enhancedFullImage.toString("base64");
-  const cropBase64 = enhancedCrop.toString("base64");
+    cursorX: cursor.x,
+    cursorY: cursor.y,
 
-  console.log("[IMAGES] Ready:", {
-    image1: "Full desktop screenshot",
-    image2: "Enhanced cursor-centered crop",
-    fullSizeMB: (enhancedFullImage.length / 1024 / 1024).toFixed(3),
-    cropSizeMB: (enhancedCrop.length / 1024 / 1024).toFixed(3),
+    screenWidth: width,
+    screenHeight: height,
+
+    cropLeft: crop.left,
+    cropTop: crop.top,
+
+    cropWidth: crop.width,
+    cropHeight: crop.height,
   });
 
-  // ----------------------------------------------------------
-  // 6. SYSTEM PROMPT
-  // ----------------------------------------------------------
-
-  const systemPrompt = `
-You are VANGREX, a general-purpose desktop visual perception system.
-
-You receive TWO images of the SAME desktop capture.
-
-IMPORTANT: BOTH IMAGES MUST BE ANALYZED TOGETHER.
-
-============================================================
-IMAGE 1 - FULL DESKTOP SCREENSHOT
-============================================================
-
-The first image shows the entire desktop.
-
-Use it to understand:
-
-- Overall desktop layout.
-- Which application is open.
-- Window arrangement.
-- Application context.
-- UI hierarchy.
-- Mouse cursor position.
-- Where the cursor is located relative to the entire screen.
-
-============================================================
-IMAGE 2 - HOVERED REGION / CURSOR CROP
-============================================================
-
-The second image is a crop extracted from IMAGE 1.
-
-It is centered around the CURRENT MOUSE CURSOR POSITION.
-
-It shows a magnified local view of the region surrounding the cursor.
-
-This image has been independently enhanced using image sharpening,
-contrast and brightness adjustments.
-
-IMPORTANT:
-
-1. IMAGE 2 is NOT a separate screenshot.
-2. IMAGE 2 is NOT an independently detected UI element.
-3. It is a local crop of IMAGE 1.
-4. The mouse cursor may be visible inside this crop.
-5. The UI element under or near the cursor should be identified
-   by visually examining IMAGE 2.
-6. Use IMAGE 1 to understand the broader context.
-7. Use IMAGE 2 to inspect small icons, text, buttons and UI details.
-
-============================================================
-IMAGE 2 COORDINATE MAPPING
-============================================================
-
-The crop represents this rectangle in IMAGE 1:
-
-Left: ${crop.left}
-Top: ${crop.top}
-Width: ${crop.width}
-Height: ${crop.height}
-
-The cursor position in IMAGE 1 is:
-
-X: ${cursor.x}
-Y: ${cursor.y}
-
-To convert a coordinate from IMAGE 2 into IMAGE 1:
-
-FullScreenX = CropX + ${crop.left}
-FullScreenY = CropY + ${crop.top}
-
-All coordinates returned in your answer MUST refer to IMAGE 1,
-not the cropped image.
-
-============================================================
-SCREEN INFORMATION
-============================================================
-
-Full screenshot resolution:
-
-Width: ${width}
-Height: ${height}
-
-Cursor coordinates:
-
-X: ${cursor.x}
-Y: ${cursor.y}
-
-Screen coordinate origin is the top-left corner.
-
-X increases towards the right.
-Y increases towards the bottom.
-
-============================================================
-VISUAL ANALYSIS RULES
-============================================================
-
-1. Analyze BOTH images together.
-2. Never ignore IMAGE 1.
-3. Never ignore IMAGE 2.
-4. Use IMAGE 1 for global context.
-5. Use IMAGE 2 for local visual detail.
-6. Never invent UI elements, labels or coordinates.
-7. Read visible text accurately.
-8. Distinguish visual evidence from assumptions.
-9. Do not confuse the mouse cursor with a UI element.
-10. If the cursor overlaps an element, identify that element.
-11. If the cursor is between elements, say so.
-12. If the crop does not contain enough information, say so.
-13. Do not assume the cursor is hovering over an element
-    merely because the element is nearby.
-
-============================================================
-ELEMENT DETECTION OUTPUT
-============================================================
-
-For location requests, return:
-
-- Element name.
-- Element type.
-- Whether visible.
-- Approximate bounding box (x, y, width, height).
-- Center coordinates.
-- Whether the cursor is inside the element.
-- Confidence.
-- Visual evidence.
-
-All bounding boxes and coordinates must use IMAGE 1 coordinates.
-
-============================================================
-IMPORTANT
-============================================================
-
-You are only performing visual analysis.
-
-Never claim to have clicked or interacted with the desktop.
-
-Use the full screenshot and cursor crop as complementary
-visual sources. The second image provides additional detail,
-not a replacement for the first image.
-
-`.trim();
-
-  // ----------------------------------------------------------
-  // 7. SEND TWO IMAGES TO MODEL
-  // ----------------------------------------------------------
-
-  console.log("\n[5] Sending TWO images to DiffusionGemma...");
-
-  const requestStart = Date.now();
-
-  const response = await client.chat.completions.create({
-    model: MODEL,
-
-    messages: [
-      {
-        role: "system",
-        content: systemPrompt,
-      },
-
-      {
-        role: "user",
-
-        content: [
-          {
-            type: "text",
-            text: `
-USER REQUEST:
-
-${userPrompt}
-
-Analyze the two supplied images.
-
-IMAGE 1: Full desktop screenshot.
-IMAGE 2: Enhanced crop surrounding the current mouse cursor.
-
-First understand the overall desktop from IMAGE 1.
-
-Then inspect IMAGE 2 carefully to identify the UI element
-under or closest to the cursor.
-
-Return coordinates relative to IMAGE 1.
-            `.trim(),
-          },
-
-          // IMAGE 1: FULL DESKTOP
-          {
-            type: "image_url",
-
-            image_url: {
-              url: `data:image/png;base64,${fullBase64}`,
-              detail: "high",
-            },
-          },
-
-          // IMAGE 2: ENHANCED CURSOR CROP
-          {
-            type: "image_url",
-
-            image_url: {
-              url: `data:image/png;base64,${cropBase64}`,
-              detail: "high",
-            },
-          },
-        ],
-      },
-    ],
-
-    max_tokens: MAX_TOKENS,
-  });
-
-  const responseTime = Date.now() - requestStart;
-
-  // ----------------------------------------------------------
-  // 8. OUTPUT
-  // ----------------------------------------------------------
-
-  const result = response.choices[0]?.message?.content;
+  // 6. Output
 
   console.log("\n==========================================");
-  console.log(" VANGREX VISUAL ANALYSIS");
-  console.log("==========================================\n");
+  console.log(" VANGREX HOVER RESULT");
+  console.log("==========================================");
 
-  if (typeof result === "string") {
-    console.log(result);
-  } else {
-    console.dir(result, { depth: null });
-  }
+  console.log(`isHovered: ${result.isHovered ? "YES" : "NO"}`);
 
-  // ----------------------------------------------------------
-  // 9. PERFORMANCE
-  // ----------------------------------------------------------
+  console.log(`Probability: ${(result.probability * 100).toFixed(2)}%`);
+
+  // 7. Performance
 
   console.log("\n==========================================");
   console.log(" PERFORMANCE");
   console.log("==========================================");
 
   console.log({
-    model: response.model,
-
-    mode: enhancementMode,
-
-    imageCount: 2,
-
-    fullResolution: `${width}x${height}`,
-
-    cropResolution: `${crop.width}x${crop.height}`,
-
-    cursor: {
-      x: cursor.x,
-      y: cursor.y,
-    },
-
-    cropOrigin: {
-      x: crop.left,
-      y: crop.top,
-    },
-
-    originalSizeMB: (originalImage.length / 1024 / 1024).toFixed(3),
-
-    enhancedFullSizeMB: (enhancedFullImage.length / 1024 / 1024).toFixed(3),
-
-    enhancedCropSizeMB: (enhancedCrop.length / 1024 / 1024).toFixed(3),
-
+    model: result.model,
+    target: userPrompt,
     captureTimeMs: captureTime,
-
     cropTimeMs: cropTime,
-
     enhancementTimeMs: enhancementTime,
-
-    responseTimeMs: responseTime,
-
-    promptTokens: response.usage?.prompt_tokens,
-
-    completionTokens: response.usage?.completion_tokens,
-
-    totalTokens: response.usage?.total_tokens,
+    apiResponseTimeMs: result.responseTime,
+    inputTokens: result.usage?.input_tokens,
+    outputTokens: result.usage?.output_tokens,
+    totalImages: 2,
+    fullResolution: `${width}x${height}`,
+    cropResolution: `${crop.width}x${crop.height}`,
+    threshold: YES_THRESHOLD,
   });
 
   console.log("\n[DONE]");
@@ -657,13 +588,7 @@ Return coordinates relative to IMAGE 1.
 main().catch((error) => {
   console.error("\n[FATAL ERROR]");
 
-  if (error instanceof OpenAI.APIError) {
-    console.error("Status:", error.status);
-    console.error("Message:", error.message);
-    console.error("Response:", error.error);
-  } else {
-    console.error(error);
-  }
+  console.error(error instanceof Error ? error.message : error);
 
   process.exit(1);
 });
