@@ -1,0 +1,1190 @@
+[
+  {
+    "id": 5,
+    "role": "Document",
+    "name": "temp.ts - vangrex-automation-v10 - Visual Studio Code - Untracked",
+    "bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 1538,
+      "height": 864
+    }
+  },
+  {
+    "id": 23,
+    "role": "TabItem",
+    "name": "Explorer (Ctrl+Shift+E)",
+    "bounds": {
+      "x": 9,
+      "y": 47,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 24,
+    "role": "TabItem",
+    "name": "Search (Ctrl+Shift+F)",
+    "bounds": {
+      "x": 9,
+      "y": 102,
+      "width": 47,
+      "height": 46
+    }
+  },
+  {
+    "id": 25,
+    "role": "TabItem",
+    "name": "Source Control (Ctrl+Shift+G) - 16 pending changes",
+    "bounds": {
+      "x": 9,
+      "y": 157,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 26,
+    "role": "TabItem",
+    "name": "Run and Debug (Ctrl+Shift+D)",
+    "bounds": {
+      "x": 9,
+      "y": 211,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 27,
+    "role": "TabItem",
+    "name": "Extensions (Ctrl+Shift+X)",
+    "bounds": {
+      "x": 9,
+      "y": 266,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 28,
+    "role": "TabItem",
+    "name": "Remote Explorer",
+    "bounds": {
+      "x": 9,
+      "y": 320,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 29,
+    "role": "TabItem",
+    "name": "Testing",
+    "bounds": {
+      "x": 9,
+      "y": 375,
+      "width": 47,
+      "height": 46
+    }
+  },
+  {
+    "id": 30,
+    "role": "TabItem",
+    "name": "Vercel",
+    "bounds": {
+      "x": 9,
+      "y": 430,
+      "width": 47,
+      "height": 46
+    }
+  },
+  {
+    "id": 31,
+    "role": "TabItem",
+    "name": "Vercel Deployment",
+    "bounds": {
+      "x": 9,
+      "y": 484,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 32,
+    "role": "TabItem",
+    "name": "Python",
+    "bounds": {
+      "x": 9,
+      "y": 538,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 33,
+    "role": "Button",
+    "name": "Accounts - Sign in to Sync Settings",
+    "bounds": {
+      "x": 9,
+      "y": 718,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 34,
+    "role": "Button",
+    "name": "Manage",
+    "bounds": {
+      "x": 9,
+      "y": 773,
+      "width": 47,
+      "height": 47
+    }
+  },
+  {
+    "id": 112,
+    "role": "Button",
+    "name": "remote",
+    "bounds": {
+      "x": 14,
+      "y": 830,
+      "width": 36,
+      "height": 31
+    }
+  },
+  {
+    "id": 6,
+    "role": "MenuItem",
+    "name": "File",
+    "bounds": {
+      "x": 43,
+      "y": 0,
+      "width": 46,
+      "height": 45
+    }
+  },
+  {
+    "id": 113,
+    "role": "Button",
+    "name": "openjev-test (Git)",
+    "bounds": {
+      "x": 55,
+      "y": 830,
+      "width": 115,
+      "height": 31
+    }
+  },
+  {
+    "id": 37,
+    "role": "Tree",
+    "name": "Files Explorer",
+    "bounds": {
+      "x": 60,
+      "y": 118,
+      "width": 371,
+      "height": 630
+    }
+  },
+  {
+    "id": 36,
+    "role": "Button",
+    "name": "Explorer Section: vangrex-automation-v10",
+    "bounds": {
+      "x": 65,
+      "y": 83,
+      "width": 361,
+      "height": 37
+    }
+  },
+  {
+    "id": 38,
+    "role": "TreeItem",
+    "name": "agent-starter-react",
+    "bounds": {
+      "x": 65,
+      "y": 118,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 39,
+    "role": "TreeItem",
+    "name": "my-agent",
+    "bounds": {
+      "x": 65,
+      "y": 146,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 40,
+    "role": "TreeItem",
+    "name": "my-agent-python",
+    "bounds": {
+      "x": 65,
+      "y": 173,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 41,
+    "role": "TreeItem",
+    "name": "openjev-test",
+    "bounds": {
+      "x": 65,
+      "y": 200,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 42,
+    "role": "TreeItem",
+    "name": "node_modules",
+    "bounds": {
+      "x": 65,
+      "y": 227,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 43,
+    "role": "TreeItem",
+    "name": "screenshots",
+    "bounds": {
+      "x": 65,
+      "y": 254,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 44,
+    "role": "TreeItem",
+    "name": "screenshot.png",
+    "bounds": {
+      "x": 65,
+      "y": 282,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 45,
+    "role": "TreeItem",
+    "name": "utils",
+    "bounds": {
+      "x": 65,
+      "y": 309,
+      "width": 361,
+      "height": 30
+    }
+  },
+  {
+    "id": 46,
+    "role": "TreeItem",
+    "name": "desktop.ts",
+    "bounds": {
+      "x": 65,
+      "y": 337,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 47,
+    "role": "TreeItem",
+    "name": "extract-elements.ts",
+    "bounds": {
+      "x": 65,
+      "y": 364,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 48,
+    "role": "TreeItem",
+    "name": "find-relevant-elements.ts",
+    "bounds": {
+      "x": 65,
+      "y": 391,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 49,
+    "role": "TreeItem",
+    "name": "terminator.ts",
+    "bounds": {
+      "x": 65,
+      "y": 418,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 50,
+    "role": "TreeItem",
+    "name": ".env",
+    "bounds": {
+      "x": 65,
+      "y": 446,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 51,
+    "role": "TreeItem",
+    "name": ".gitignore",
+    "bounds": {
+      "x": 65,
+      "y": 473,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 52,
+    "role": "TreeItem",
+    "name": "bun.lock",
+    "bounds": {
+      "x": 65,
+      "y": 500,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 53,
+    "role": "TreeItem",
+    "name": "index.ts",
+    "bounds": {
+      "x": 65,
+      "y": 527,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 54,
+    "role": "TreeItem",
+    "name": "package.json",
+    "bounds": {
+      "x": 65,
+      "y": 554,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 55,
+    "role": "TreeItem",
+    "name": "README.md",
+    "bounds": {
+      "x": 65,
+      "y": 582,
+      "width": 361,
+      "height": 30
+    }
+  },
+  {
+    "id": 56,
+    "role": "TreeItem",
+    "name": "temp.ts",
+    "bounds": {
+      "x": 65,
+      "y": 610,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 57,
+    "role": "TreeItem",
+    "name": "tree-filtered.txt",
+    "bounds": {
+      "x": 65,
+      "y": 637,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 58,
+    "role": "TreeItem",
+    "name": "tree-sorted.json",
+    "bounds": {
+      "x": 65,
+      "y": 664,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 59,
+    "role": "TreeItem",
+    "name": "tree-sorted.txt",
+    "bounds": {
+      "x": 65,
+      "y": 691,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 60,
+    "role": "TreeItem",
+    "name": "tree.txt",
+    "bounds": {
+      "x": 65,
+      "y": 718,
+      "width": 361,
+      "height": 29
+    }
+  },
+  {
+    "id": 61,
+    "role": "Button",
+    "name": "Outline Section",
+    "bounds": {
+      "x": 65,
+      "y": 746,
+      "width": 361,
+      "height": 37
+    }
+  },
+  {
+    "id": 62,
+    "role": "Button",
+    "name": "Timeline Section",
+    "bounds": {
+      "x": 65,
+      "y": 782,
+      "width": 361,
+      "height": 36
+    }
+  },
+  {
+    "id": 7,
+    "role": "MenuItem",
+    "name": "Edit",
+    "bounds": {
+      "x": 87,
+      "y": 0,
+      "width": 48,
+      "height": 45
+    }
+  },
+  {
+    "id": 8,
+    "role": "MenuItem",
+    "name": "Selection",
+    "bounds": {
+      "x": 134,
+      "y": 0,
+      "width": 87,
+      "height": 45
+    }
+  },
+  {
+    "id": 114,
+    "role": "Button",
+    "name": "openjev-test (Git) - main*, Checkout Branch/Tag...",
+    "bounds": {
+      "x": 169,
+      "y": 830,
+      "width": 72,
+      "height": 31
+    }
+  },
+  {
+    "id": 9,
+    "role": "MenuItem",
+    "name": "View",
+    "bounds": {
+      "x": 218,
+      "y": 0,
+      "width": 55,
+      "height": 45
+    }
+  },
+  {
+    "id": 115,
+    "role": "Button",
+    "name": "openjev-test (Git) - Publish to GitHub",
+    "bounds": {
+      "x": 239,
+      "y": 830,
+      "width": 29,
+      "height": 31
+    }
+  },
+  {
+    "id": 10,
+    "role": "MenuItem",
+    "name": "Go",
+    "bounds": {
+      "x": 272,
+      "y": 0,
+      "width": 43,
+      "height": 45
+    }
+  },
+  {
+    "id": 116,
+    "role": "Button",
+    "name": "No Problems",
+    "bounds": {
+      "x": 276,
+      "y": 830,
+      "width": 83,
+      "height": 31
+    }
+  },
+  {
+    "id": 11,
+    "role": "MenuItem",
+    "name": "Run",
+    "bounds": {
+      "x": 313,
+      "y": 0,
+      "width": 49,
+      "height": 45
+    }
+  },
+  {
+    "id": 12,
+    "role": "MenuItem",
+    "name": "More",
+    "bounds": {
+      "x": 360,
+      "y": 0,
+      "width": 49,
+      "height": 45
+    }
+  },
+  {
+    "id": 35,
+    "role": "Button",
+    "name": "Views and More Actions...",
+    "bounds": {
+      "x": 398,
+      "y": 50,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 63,
+    "role": "TabItem",
+    "name": "index.ts",
+    "bounds": {
+      "x": 437,
+      "y": 44,
+      "width": 144,
+      "height": 40
+    }
+  },
+  {
+    "id": 71,
+    "role": "ListItem",
+    "name": "openjev-test",
+    "bounds": {
+      "x": 437,
+      "y": 83,
+      "width": 131,
+      "height": 29
+    }
+  },
+  {
+    "id": 96,
+    "role": "ListItem",
+    "name": "(my-agent-python) PS D:\\projects\\vangrex-automation-v10\\openjev-test> bun run temp.ts",
+    "bounds": {
+      "x": 437,
+      "y": 479,
+      "width": 886,
+      "height": 23
+    }
+  },
+  {
+    "id": 82,
+    "role": "TabItem",
+    "name": "Problems (Ctrl+Shift+M)",
+    "bounds": {
+      "x": 439,
+      "y": 439,
+      "width": 93,
+      "height": 42
+    }
+  },
+  {
+    "id": 13,
+    "role": "Button",
+    "name": "Go Back (Alt+LeftArrow)",
+    "bounds": {
+      "x": 443,
+      "y": 8,
+      "width": 30,
+      "height": 29
+    }
+  },
+  {
+    "id": 110,
+    "role": "Edit",
+    "name": "Terminal 3, powershell Use Alt+F1 for terminal accessibility help",
+    "bounds": {
+      "x": 462,
+      "y": 586,
+      "width": 12,
+      "height": 23
+    }
+  },
+  {
+    "id": 14,
+    "role": "Button",
+    "name": "Go Forward (Alt+RightArrow)",
+    "bounds": {
+      "x": 476,
+      "y": 8,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 15,
+    "role": "ToolBar",
+    "name": "Agent Status",
+    "bounds": {
+      "x": 508,
+      "y": 7,
+      "width": 586,
+      "height": 31
+    }
+  },
+  {
+    "id": 16,
+    "role": "Button",
+    "name": "Open Quick Access",
+    "bounds": {
+      "x": 509,
+      "y": 8,
+      "width": 521,
+      "height": 29
+    }
+  },
+  {
+    "id": 74,
+    "role": "Edit",
+    "name": "temp.ts, preview",
+    "bounds": {
+      "x": 525,
+      "y": 110,
+      "width": 928,
+      "height": 26
+    }
+  },
+  {
+    "id": 83,
+    "role": "TabItem",
+    "name": "Output (Ctrl+Shift+U)",
+    "bounds": {
+      "x": 530,
+      "y": 439,
+      "width": 78,
+      "height": 42
+    }
+  },
+  {
+    "id": 64,
+    "role": "Button",
+    "name": "Close (Ctrl+F4)",
+    "bounds": {
+      "x": 546,
+      "y": 50,
+      "width": 27,
+      "height": 27
+    }
+  },
+  {
+    "id": 72,
+    "role": "ListItem",
+    "name": "temp.ts",
+    "bounds": {
+      "x": 566,
+      "y": 83,
+      "width": 102,
+      "height": 29
+    }
+  },
+  {
+    "id": 65,
+    "role": "TabItem",
+    "name": "temp.ts, preview",
+    "bounds": {
+      "x": 579,
+      "y": 44,
+      "width": 143,
+      "height": 40
+    }
+  },
+  {
+    "id": 84,
+    "role": "TabItem",
+    "name": "Debug Console (Ctrl+Shift+Y)",
+    "bounds": {
+      "x": 606,
+      "y": 439,
+      "width": 136,
+      "height": 42
+    }
+  },
+  {
+    "id": 73,
+    "role": "ListItem",
+    "name": "…",
+    "bounds": {
+      "x": 666,
+      "y": 83,
+      "width": 24,
+      "height": 29
+    }
+  },
+  {
+    "id": 66,
+    "role": "Button",
+    "name": "Close (Ctrl+F4)",
+    "bounds": {
+      "x": 688,
+      "y": 50,
+      "width": 27,
+      "height": 27
+    }
+  },
+  {
+    "id": 85,
+    "role": "TabItem",
+    "name": "Terminal (Ctrl+`)",
+    "bounds": {
+      "x": 741,
+      "y": 439,
+      "width": 87,
+      "height": 42
+    }
+  },
+  {
+    "id": 126,
+    "role": "Button",
+    "name": "Screen Reader Optimized",
+    "bounds": {
+      "x": 758,
+      "y": 830,
+      "width": 187,
+      "height": 31
+    }
+  },
+  {
+    "id": 86,
+    "role": "TabItem",
+    "name": "Ports",
+    "bounds": {
+      "x": 826,
+      "y": 439,
+      "width": 62,
+      "height": 42
+    }
+  },
+  {
+    "id": 125,
+    "role": "Button",
+    "name": "Ln 149, Col 1",
+    "bounds": {
+      "x": 948,
+      "y": 830,
+      "width": 99,
+      "height": 31
+    }
+  },
+  {
+    "id": 124,
+    "role": "Button",
+    "name": "Spaces: 2",
+    "bounds": {
+      "x": 1052,
+      "y": 830,
+      "width": 75,
+      "height": 31
+    }
+  },
+  {
+    "id": 18,
+    "role": "Button",
+    "name": "Open in Agents Window (Ctrl+Shift+Alt+A)",
+    "bounds": {
+      "x": 1104,
+      "y": 8,
+      "width": 32,
+      "height": 29
+    }
+  },
+  {
+    "id": 75,
+    "role": "CheckBox",
+    "name": "Match Case (Alt+C)",
+    "bounds": {
+      "x": 1118,
+      "y": 70,
+      "width": 27,
+      "height": 27
+    }
+  },
+  {
+    "id": 87,
+    "role": "Button",
+    "name": "Focus Terminal (Ctrl+DownArrow) [Alt] Split Terminal (Ctrl+Shift+5)",
+    "bounds": {
+      "x": 1119,
+      "y": 444,
+      "width": 187,
+      "height": 32
+    }
+  },
+  {
+    "id": 123,
+    "role": "Button",
+    "name": "UTF-8",
+    "bounds": {
+      "x": 1132,
+      "y": 830,
+      "width": 54,
+      "height": 31
+    }
+  },
+  {
+    "id": 76,
+    "role": "CheckBox",
+    "name": "Match Whole Word (Alt+W)",
+    "bounds": {
+      "x": 1145,
+      "y": 70,
+      "width": 27,
+      "height": 27
+    }
+  },
+  {
+    "id": 77,
+    "role": "CheckBox",
+    "name": "Use Regular Expression (Alt+R)",
+    "bounds": {
+      "x": 1172,
+      "y": 70,
+      "width": 27,
+      "height": 27
+    }
+  },
+  {
+    "id": 122,
+    "role": "Button",
+    "name": "CRLF",
+    "bounds": {
+      "x": 1191,
+      "y": 830,
+      "width": 47,
+      "height": 31
+    }
+  },
+  {
+    "id": 19,
+    "role": "Button",
+    "name": "Customize Layout...",
+    "bounds": {
+      "x": 1236,
+      "y": 8,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 121,
+    "role": "Button",
+    "name": "Editor Language Status: openjev-test/tsconfig.json, next: 6.0.0-dev.20260416, TypeScript version, next: Prettier, next: $(copilot) No inline suggestion available, Inline suggestions",
+    "bounds": {
+      "x": 1246,
+      "y": 830,
+      "width": 29,
+      "height": 31
+    }
+  },
+  {
+    "id": 20,
+    "role": "Button",
+    "name": "Toggle Primary Side Bar (Ctrl+B)",
+    "bounds": {
+      "x": 1268,
+      "y": 8,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 120,
+    "role": "Button",
+    "name": "TypeScript",
+    "bounds": {
+      "x": 1274,
+      "y": 830,
+      "width": 77,
+      "height": 31
+    }
+  },
+  {
+    "id": 78,
+    "role": "Button",
+    "name": "Previous Match (Shift+Enter)",
+    "bounds": {
+      "x": 1293,
+      "y": 68,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 21,
+    "role": "Button",
+    "name": "Toggle Panel (Ctrl+J)",
+    "bounds": {
+      "x": 1301,
+      "y": 8,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 88,
+    "role": "Button",
+    "name": "New Terminal (Ctrl+Shift+`) [Alt] Split Terminal (Ctrl+Shift+5)",
+    "bounds": {
+      "x": 1310,
+      "y": 446,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 79,
+    "role": "Button",
+    "name": "Next Match (Enter)",
+    "bounds": {
+      "x": 1323,
+      "y": 68,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 22,
+    "role": "Button",
+    "name": "Toggle Secondary Side Bar (Ctrl+Alt+B)",
+    "bounds": {
+      "x": 1333,
+      "y": 8,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 89,
+    "role": "Button",
+    "name": "Launch Profile...",
+    "bounds": {
+      "x": 1334,
+      "y": 446,
+      "width": 21,
+      "height": 29
+    }
+  },
+  {
+    "id": 80,
+    "role": "CheckBox",
+    "name": "Find in Selection (Alt+L)",
+    "bounds": {
+      "x": 1354,
+      "y": 68,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 90,
+    "role": "Button",
+    "name": "Split Terminal (Ctrl+Shift+5)",
+    "bounds": {
+      "x": 1358,
+      "y": 446,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 119,
+    "role": "Button",
+    "name": "Inline suggestions disabled",
+    "bounds": {
+      "x": 1358,
+      "y": 830,
+      "width": 35,
+      "height": 31
+    }
+  },
+  {
+    "id": 2,
+    "role": "Button",
+    "name": "Minimize",
+    "bounds": {
+      "x": 1366,
+      "y": 0,
+      "width": 57,
+      "height": 43
+    }
+  },
+  {
+    "id": 81,
+    "role": "Button",
+    "name": "Close (Escape)",
+    "bounds": {
+      "x": 1384,
+      "y": 69,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 91,
+    "role": "Button",
+    "name": "Kill Terminal",
+    "bounds": {
+      "x": 1390,
+      "y": 446,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 118,
+    "role": "Button",
+    "name": "check Prettier",
+    "bounds": {
+      "x": 1398,
+      "y": 830,
+      "width": 86,
+      "height": 31
+    }
+  },
+  {
+    "id": 3,
+    "role": "Button",
+    "name": "Restore",
+    "bounds": {
+      "x": 1422,
+      "y": 0,
+      "width": 59,
+      "height": 43
+    }
+  },
+  {
+    "id": 92,
+    "role": "Button",
+    "name": "Views and More Actions...",
+    "bounds": {
+      "x": 1422,
+      "y": 446,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 67,
+    "role": "Button",
+    "name": "Open Changes",
+    "bounds": {
+      "x": 1434,
+      "y": 50,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 68,
+    "role": "Button",
+    "name": "Split Editor Right (Ctrl+\\) [Alt] Split Editor Down",
+    "bounds": {
+      "x": 1466,
+      "y": 50,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 94,
+    "role": "Button",
+    "name": "Maximize Panel",
+    "bounds": {
+      "x": 1466,
+      "y": 446,
+      "width": 29,
+      "height": 29
+    }
+  },
+  {
+    "id": 4,
+    "role": "Button",
+    "name": "Close",
+    "bounds": {
+      "x": 1479,
+      "y": 0,
+      "width": 59,
+      "height": 43
+    }
+  },
+  {
+    "id": 117,
+    "role": "Button",
+    "name": "Notifications",
+    "bounds": {
+      "x": 1486,
+      "y": 830,
+      "width": 36,
+      "height": 31
+    }
+  },
+  {
+    "id": 69,
+    "role": "Button",
+    "name": "More Actions...",
+    "bounds": {
+      "x": 1498,
+      "y": 50,
+      "width": 30,
+      "height": 29
+    }
+  },
+  {
+    "id": 95,
+    "role": "Button",
+    "name": "Hide Panel (Ctrl+J)",
+    "bounds": {
+      "x": 1498,
+      "y": 446,
+      "width": 30,
+      "height": 29
+    }
+  }
+]

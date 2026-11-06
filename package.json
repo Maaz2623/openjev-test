@@ -1,0 +1,21 @@
+{
+  "name": "openjev-test",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@mediar-ai/terminator": "^0.24.32",
+    "@types/node": "^26.6.6",
+    "@typesafe-ai/sdk": "^0.6.0",
+    "dotenv": "^18.0.9",
+    "robotjs": "^0.9.1",
+    "screenshot-desktop": "^1.15.8",
+    "sharp": "^0.35.5"
+  }
+}

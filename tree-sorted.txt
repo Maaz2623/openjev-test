@@ -1,0 +1,323 @@
+#5 [Document] temp.ts - vangrex-automation-v10 - Visual Studio Code - Untracked
+  x: 0, y: 0, width: 1538, height: 864
+
+#23 [TabItem] Explorer (Ctrl+Shift+E)
+  x: 9, y: 47, width: 47, height: 47
+
+#24 [TabItem] Search (Ctrl+Shift+F)
+  x: 9, y: 102, width: 47, height: 46
+
+#25 [TabItem] Source Control (Ctrl+Shift+G) - 16 pending changes
+  x: 9, y: 157, width: 47, height: 47
+
+#26 [TabItem] Run and Debug (Ctrl+Shift+D)
+  x: 9, y: 211, width: 47, height: 47
+
+#27 [TabItem] Extensions (Ctrl+Shift+X)
+  x: 9, y: 266, width: 47, height: 47
+
+#28 [TabItem] Remote Explorer
+  x: 9, y: 320, width: 47, height: 47
+
+#29 [TabItem] Testing
+  x: 9, y: 375, width: 47, height: 46
+
+#30 [TabItem] Vercel
+  x: 9, y: 430, width: 47, height: 46
+
+#31 [TabItem] Vercel Deployment
+  x: 9, y: 484, width: 47, height: 47
+
+#32 [TabItem] Python
+  x: 9, y: 538, width: 47, height: 47
+
+#33 [Button] Accounts - Sign in to Sync Settings
+  x: 9, y: 718, width: 47, height: 47
+
+#34 [Button] Manage
+  x: 9, y: 773, width: 47, height: 47
+
+#112 [Button] remote
+  x: 14, y: 830, width: 36, height: 31
+
+#6 [MenuItem] File
+  x: 43, y: 0, width: 46, height: 45
+
+#113 [Button] openjev-test (Git)
+  x: 55, y: 830, width: 115, height: 31
+
+#37 [Tree] Files Explorer
+  x: 60, y: 118, width: 371, height: 630
+
+#36 [Button] Explorer Section: vangrex-automation-v10
+  x: 65, y: 83, width: 361, height: 37
+
+#38 [TreeItem] agent-starter-react
+  x: 65, y: 118, width: 361, height: 29
+
+#39 [TreeItem] my-agent
+  x: 65, y: 146, width: 361, height: 29
+
+#40 [TreeItem] my-agent-python
+  x: 65, y: 173, width: 361, height: 29
+
+#41 [TreeItem] openjev-test
+  x: 65, y: 200, width: 361, height: 29
+
+#42 [TreeItem] node_modules
+  x: 65, y: 227, width: 361, height: 29
+
+#43 [TreeItem] screenshots
+  x: 65, y: 254, width: 361, height: 29
+
+#44 [TreeItem] screenshot.png
+  x: 65, y: 282, width: 361, height: 29
+
+#45 [TreeItem] utils
+  x: 65, y: 309, width: 361, height: 30
+
+#46 [TreeItem] desktop.ts
+  x: 65, y: 337, width: 361, height: 29
+
+#47 [TreeItem] extract-elements.ts
+  x: 65, y: 364, width: 361, height: 29
+
+#48 [TreeItem] find-relevant-elements.ts
+  x: 65, y: 391, width: 361, height: 29
+
+#49 [TreeItem] terminator.ts
+  x: 65, y: 418, width: 361, height: 29
+
+#50 [TreeItem] .env
+  x: 65, y: 446, width: 361, height: 29
+
+#51 [TreeItem] .gitignore
+  x: 65, y: 473, width: 361, height: 29
+
+#52 [TreeItem] bun.lock
+  x: 65, y: 500, width: 361, height: 29
+
+#53 [TreeItem] index.ts
+  x: 65, y: 527, width: 361, height: 29
+
+#54 [TreeItem] package.json
+  x: 65, y: 554, width: 361, height: 29
+
+#55 [TreeItem] README.md
+  x: 65, y: 582, width: 361, height: 30
+
+#56 [TreeItem] temp.ts
+  x: 65, y: 610, width: 361, height: 29
+
+#57 [TreeItem] tree-filtered.txt
+  x: 65, y: 637, width: 361, height: 29
+
+#58 [TreeItem] tree-sorted.json
+  x: 65, y: 664, width: 361, height: 29
+
+#59 [TreeItem] tree-sorted.txt
+  x: 65, y: 691, width: 361, height: 29
+
+#60 [TreeItem] tree.txt
+  x: 65, y: 718, width: 361, height: 29
+
+#61 [Button] Outline Section
+  x: 65, y: 746, width: 361, height: 37
+
+#62 [Button] Timeline Section
+  x: 65, y: 782, width: 361, height: 36
+
+#7 [MenuItem] Edit
+  x: 87, y: 0, width: 48, height: 45
+
+#8 [MenuItem] Selection
+  x: 134, y: 0, width: 87, height: 45
+
+#114 [Button] openjev-test (Git) - main*, Checkout Branch/Tag...
+  x: 169, y: 830, width: 72, height: 31
+
+#9 [MenuItem] View
+  x: 218, y: 0, width: 55, height: 45
+
+#115 [Button] openjev-test (Git) - Publish to GitHub
+  x: 239, y: 830, width: 29, height: 31
+
+#10 [MenuItem] Go
+  x: 272, y: 0, width: 43, height: 45
+
+#116 [Button] No Problems
+  x: 276, y: 830, width: 83, height: 31
+
+#11 [MenuItem] Run
+  x: 313, y: 0, width: 49, height: 45
+
+#12 [MenuItem] More
+  x: 360, y: 0, width: 49, height: 45
+
+#35 [Button] Views and More Actions...
+  x: 398, y: 50, width: 29, height: 29
+
+#63 [TabItem] index.ts
+  x: 437, y: 44, width: 144, height: 40
+
+#71 [ListItem] openjev-test
+  x: 437, y: 83, width: 131, height: 29
+
+#96 [ListItem] (my-agent-python) PS D:\projects\vangrex-automation-v10\openjev-test> bun run temp.ts
+  x: 437, y: 479, width: 886, height: 23
+
+#82 [TabItem] Problems (Ctrl+Shift+M)
+  x: 439, y: 439, width: 93, height: 42
+
+#13 [Button] Go Back (Alt+LeftArrow)
+  x: 443, y: 8, width: 30, height: 29
+
+#110 [Edit] Terminal 3, powershell Use Alt+F1 for terminal accessibility help
+  x: 462, y: 586, width: 12, height: 23
+
+#14 [Button] Go Forward (Alt+RightArrow)
+  x: 476, y: 8, width: 29, height: 29
+
+#15 [ToolBar] Agent Status
+  x: 508, y: 7, width: 586, height: 31
+
+#16 [Button] Open Quick Access
+  x: 509, y: 8, width: 521, height: 29
+
+#74 [Edit] temp.ts, preview
+  x: 525, y: 110, width: 928, height: 26
+
+#83 [TabItem] Output (Ctrl+Shift+U)
+  x: 530, y: 439, width: 78, height: 42
+
+#64 [Button] Close (Ctrl+F4)
+  x: 546, y: 50, width: 27, height: 27
+
+#72 [ListItem] temp.ts
+  x: 566, y: 83, width: 102, height: 29
+
+#65 [TabItem] temp.ts, preview
+  x: 579, y: 44, width: 143, height: 40
+
+#84 [TabItem] Debug Console (Ctrl+Shift+Y)
+  x: 606, y: 439, width: 136, height: 42
+
+#73 [ListItem] …
+  x: 666, y: 83, width: 24, height: 29
+
+#66 [Button] Close (Ctrl+F4)
+  x: 688, y: 50, width: 27, height: 27
+
+#85 [TabItem] Terminal (Ctrl+`)
+  x: 741, y: 439, width: 87, height: 42
+
+#126 [Button] Screen Reader Optimized
+  x: 758, y: 830, width: 187, height: 31
+
+#86 [TabItem] Ports
+  x: 826, y: 439, width: 62, height: 42
+
+#125 [Button] Ln 149, Col 1
+  x: 948, y: 830, width: 99, height: 31
+
+#124 [Button] Spaces: 2
+  x: 1052, y: 830, width: 75, height: 31
+
+#18 [Button] Open in Agents Window (Ctrl+Shift+Alt+A)
+  x: 1104, y: 8, width: 32, height: 29
+
+#75 [CheckBox] Match Case (Alt+C)
+  x: 1118, y: 70, width: 27, height: 27
+
+#87 [Button] Focus Terminal (Ctrl+DownArrow) [Alt] Split Terminal (Ctrl+Shift+5)
+  x: 1119, y: 444, width: 187, height: 32
+
+#123 [Button] UTF-8
+  x: 1132, y: 830, width: 54, height: 31
+
+#76 [CheckBox] Match Whole Word (Alt+W)
+  x: 1145, y: 70, width: 27, height: 27
+
+#77 [CheckBox] Use Regular Expression (Alt+R)
+  x: 1172, y: 70, width: 27, height: 27
+
+#122 [Button] CRLF
+  x: 1191, y: 830, width: 47, height: 31
+
+#19 [Button] Customize Layout...
+  x: 1236, y: 8, width: 29, height: 29
+
+#121 [Button] Editor Language Status: openjev-test/tsconfig.json, next: 6.0.0-dev.20260416, TypeScript version, next: Prettier, next: $(copilot) No inline suggestion available, Inline suggestions
+  x: 1246, y: 830, width: 29, height: 31
+
+#20 [Button] Toggle Primary Side Bar (Ctrl+B)
+  x: 1268, y: 8, width: 29, height: 29
+
+#120 [Button] TypeScript
+  x: 1274, y: 830, width: 77, height: 31
+
+#78 [Button] Previous Match (Shift+Enter)
+  x: 1293, y: 68, width: 29, height: 29
+
+#21 [Button] Toggle Panel (Ctrl+J)
+  x: 1301, y: 8, width: 29, height: 29
+
+#88 [Button] New Terminal (Ctrl+Shift+`) [Alt] Split Terminal (Ctrl+Shift+5)
+  x: 1310, y: 446, width: 29, height: 29
+
+#79 [Button] Next Match (Enter)
+  x: 1323, y: 68, width: 29, height: 29
+
+#22 [Button] Toggle Secondary Side Bar (Ctrl+Alt+B)
+  x: 1333, y: 8, width: 29, height: 29
+
+#89 [Button] Launch Profile...
+  x: 1334, y: 446, width: 21, height: 29
+
+#80 [CheckBox] Find in Selection (Alt+L)
+  x: 1354, y: 68, width: 29, height: 29
+
+#90 [Button] Split Terminal (Ctrl+Shift+5)
+  x: 1358, y: 446, width: 29, height: 29
+
+#119 [Button] Inline suggestions disabled
+  x: 1358, y: 830, width: 35, height: 31
+
+#2 [Button] Minimize
+  x: 1366, y: 0, width: 57, height: 43
+
+#81 [Button] Close (Escape)
+  x: 1384, y: 69, width: 29, height: 29
+
+#91 [Button] Kill Terminal
+  x: 1390, y: 446, width: 29, height: 29
+
+#118 [Button] check Prettier
+  x: 1398, y: 830, width: 86, height: 31
+
+#3 [Button] Restore
+  x: 1422, y: 0, width: 59, height: 43
+
+#92 [Button] Views and More Actions...
+  x: 1422, y: 446, width: 29, height: 29
+
+#67 [Button] Open Changes
+  x: 1434, y: 50, width: 29, height: 29
+
+#68 [Button] Split Editor Right (Ctrl+\) [Alt] Split Editor Down
+  x: 1466, y: 50, width: 29, height: 29
+
+#94 [Button] Maximize Panel
+  x: 1466, y: 446, width: 29, height: 29
+
+#4 [Button] Close
+  x: 1479, y: 0, width: 59, height: 43
+
+#117 [Button] Notifications
+  x: 1486, y: 830, width: 36, height: 31
+
+#69 [Button] More Actions...
+  x: 1498, y: 50, width: 30, height: 29
+
+#95 [Button] Hide Panel (Ctrl+J)
+  x: 1498, y: 446, width: 30, height: 29
