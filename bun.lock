@@ -5,6 +5,7 @@
       "name": "openjev-test",
       "dependencies": {
         "@mediar-ai/terminator": "^0.24.32",
+        "@screen-capture/node": "^1.1.0",
         "@types/node": "^26.6.6",
         "@typesafe-ai/sdk": "^0.6.0",
         "dotenv": "^18.0.9",
@@ -87,6 +88,22 @@
     "@mediar-ai/terminator-win32-arm64-msvc": ["@mediar-ai/terminator-win32-arm64-msvc@0.24.32", "", { "os": "win32", "cpu": "arm64" }, "sha512-pFQtJEjTaapFU1r2HT3yq8W4bTkSxp7OKtXcDRdPNVoOWcDlf2Hu5yEtdQbi1FwD8SFJlvD02uGR2eGjlh8dlA=="],
 
     "@mediar-ai/terminator-win32-x64-msvc": ["@mediar-ai/terminator-win32-x64-msvc@0.24.32", "", { "os": "win32", "cpu": "x64" }, "sha512-5rnxtwpuBKh9Dgxaa+4tgFRqsXVwBDttcYAW9rowKCMXqj0tUGhQgjxndz0t/gDBGiW5+vzc/RoFLruSazCy2g=="],
+
+    "@screen-capture/node": ["@screen-capture/node@1.1.0", "", { "optionalDependencies": { "@screen-capture/node-darwin-arm64": "1.1.0", "@screen-capture/node-darwin-x64": "1.1.0", "@screen-capture/node-linux-arm64-gnu": "1.1.0", "@screen-capture/node-linux-x64-gnu": "1.1.0", "@screen-capture/node-win32-arm64-msvc": "1.1.0", "@screen-capture/node-win32-ia32-msvc": "1.1.0", "@screen-capture/node-win32-x64-msvc": "1.1.0" } }, "sha512-LZj0+WWOjLOeq9UI8ie8cVWYydUMHwpfSpnWlK7GWST1bCTDAS3+lSsan8IEgbD+PMrDXFbVXhhbL5rJtS9YvA=="],
+
+    "@screen-capture/node-darwin-arm64": ["@screen-capture/node-darwin-arm64@1.1.0", "", { "os": "darwin", "cpu": "arm64" }, "sha512-HFpNEEy4aUUGf0plHdDLzRhCpe3YIP1KUyl2jOp+StDDbqV/3itGhs8EJMzqrWzZjURbIujNUsGO26iQQuSOtw=="],
+
+    "@screen-capture/node-darwin-x64": ["@screen-capture/node-darwin-x64@1.1.0", "", { "os": "darwin", "cpu": "x64" }, "sha512-qpPYI9p2l8JyMHvcjZDrfEPdbIc2Wj7XI7biLBXAVk0EXyskfbDH+fHvTwwosfup/PkwcwDm3X4vB8rNTejhRg=="],
+
+    "@screen-capture/node-linux-arm64-gnu": ["@screen-capture/node-linux-arm64-gnu@1.1.0", "", { "os": "linux", "cpu": "arm64" }, "sha512-v0hdYbqP/T3bIc5L6vz6T/R3FZZOgS8kXbeFuHe4NKmhBCdb/egUzJ4gD9kXUx68xHzbIfh+0kA8zuRFrWnGBg=="],
+
+    "@screen-capture/node-linux-x64-gnu": ["@screen-capture/node-linux-x64-gnu@1.1.0", "", { "os": "linux", "cpu": "x64" }, "sha512-JtXAVCHCC/dr/6Cgkfkj4+B/FUv9EKXbf22BE0A4pVXiZMAOkcHJaPmYIaka/pBhiTmrdx/GqiKVDyW4JS0Akw=="],
+
+    "@screen-capture/node-win32-arm64-msvc": ["@screen-capture/node-win32-arm64-msvc@1.1.0", "", { "os": "win32", "cpu": "arm64" }, "sha512-/9+KlCev2JZ96/4+DxMJo7k2gyGZyDQsi92wxCOk7h1U8xNlRplr9zrGPfTPmHX1zfzKKd0FENa3P4elkjMpVg=="],
+
+    "@screen-capture/node-win32-ia32-msvc": ["@screen-capture/node-win32-ia32-msvc@1.1.0", "", { "os": "win32", "cpu": "ia32" }, "sha512-54W5qf84i21xgyEcAzdYIaDv3CYSPJ8c6yXJ00WiojWEbpftN/6hvzMWh/h4n9q3KgTSRvAU/ztLlLla+Rstog=="],
+
+    "@screen-capture/node-win32-x64-msvc": ["@screen-capture/node-win32-x64-msvc@1.1.0", "", { "os": "win32", "cpu": "x64" }, "sha512-rQoMSnzzFdZfIS2hEawlIaHv7+CIVZnKza2w9Ck78md6H9dqclapQ4hJE1Vbm5ZGy041KP4HN9h3D01HmiDghQ=="],
 
     "@types/bun": ["@types/bun@1.4.4", "", { "dependencies": { "bun-types": "1.4.4" } }, "sha512-9wkRDXUXK124pEnAutE6n/l18j+i9GC5IAHK8TmX/2nlySETmky0OU6yL5U8pW1AoKh++AN9auDCr647BfurjQ=="],
 

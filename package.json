@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mediar-ai/terminator": "^0.24.32",
+    "@screen-capture/node": "^1.1.0",
     "@types/node": "^26.6.6",
     "@typesafe-ai/sdk": "^0.6.0",
     "dotenv": "^18.0.9",
